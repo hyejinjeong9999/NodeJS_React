@@ -12,3 +12,12 @@
     5. 데이터 전송해보기 (POST)
 
   
+
+----
+
+# 초보자를 위한 Node.js 200제
+
+* 책 정리
+  * [Notion목차](https://www.notion.so/zzhyejin/Node-js-200-bd08abd2838e491ba0ea3993d5993c05)
+    1. JAVASCRIPT 입문
+    2. JAVASCRIPT 조건문,반복문
