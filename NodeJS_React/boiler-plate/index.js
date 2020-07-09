@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 5000
 const bodyParser = require('body-parser');
+const config = require('./config/key');
+
 const { User } = require("./models/User");
 
 //application/x-www-form-urlencoded 형식의 데이터를 분석해 가져옴
@@ -11,12 +13,12 @@ app.use(bodyParser.json());
 
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://hyejin:1234@boilerplate.o3a5z.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected....'))
     .catch(err => console.log(err))
 
-app.get('/', (req, res) => res.send('Hello World! 테스트 입니다'))
+app.get('/', (req, res) => res.send('Hello World! 테스트 입니다 nodemon 테스트입니다'))
 
 app.post('/register', (req, res) => {
     //회원가입할 때 필요한 정보들을  client에서 가져오면 
