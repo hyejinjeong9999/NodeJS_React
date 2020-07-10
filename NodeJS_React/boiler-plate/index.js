@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 5000
 const bodyParser = require('body-parser');
-const config = require('./config/key');
+//const config = require('./config/key');
 
 const { User } = require("./models/User");
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 
 const mongoose = require('mongoose')
-mongoose.connect(config.mongoURI, {
+mongoose.connect('mongodb+srv://hyejin:1234@boilerplate.o3a5z.mongodb.net/boilerplate?retryWrites=true&w=majority', {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected....'))
     .catch(err => console.log(err))
@@ -27,7 +27,8 @@ app.post('/register', (req, res) => {
 
     const user = new User(req.body)
     //mongo db의 user model에  저장
-    user.save((err, body) => {
+    //저장하기 전에 비밀번호를 암호화시키기
+    user.save((err, userInfo) => {
         //에러가 난다면 json 형식으로 err 메시지전달
         if (err) return res.json({ success: false, err })
         //성공했다면 200(성공)일시 json 형식으로 true 전달 

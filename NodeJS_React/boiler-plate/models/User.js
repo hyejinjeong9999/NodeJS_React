@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const userSchema = mongoose.Schema({
 
@@ -35,6 +37,37 @@ const userSchema = mongoose.Schema({
     }
 
 })
+
+//유저 모델을 저장하기 전에 function을 실행하겠다
+//이 함수가 끝나면 다시 index.js의 user.save로 돌아간다(next)
+userSchema.pre('save', function(next){
+    //우리가 방금 받은 user데이터를 user에 저장
+    var user = this;
+        //비밀번호를 바꿀때만 암호화
+    if(user.isModified('password')){
+        //solt로 -> saltround, 함수 실행 (에러일경우 에러 표시 정상인 경우 salt)
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            //err일 경우 그냥 index로 이동
+            if (err) return next(err)
+            //salt를 제대로 생성했다면 실행
+            //user의 날것의 비밀번호, salt, 함수실행 (에러일 경우,암호화된 비밀번호)
+            bcrypt.hash(user.password, salt, function(err,hash){
+                //에러가 발생했을 경우 index로 이동
+                if(err) return next(err)
+                //암호만들기에 성공했으면 pw에 hash를 저장하고 index로 이동
+                user.password = hash
+                next()
+            })
+        })
+        //비밀번호가 아닌 다른 것을 바꿀때는 그냥 넘어간다
+        //next가 없으면 안넘어감
+    }else{
+        next()
+
+    }
+})
+
+
 //스키마를 model로 감쌈
 const User = mongoose.model('User',userSchema)
 //다른 파일에서도 사용가능하게 export 한다
