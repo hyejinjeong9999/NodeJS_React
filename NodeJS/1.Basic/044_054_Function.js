@@ -33,7 +33,7 @@ function sum(a, b) {
     const r = a + b;
     return r;
 }
-
+//sum 100,200이 실행된 결과를 result에 저장
 const result = sum(100, 200);
 console.log(result);
 
@@ -101,6 +101,7 @@ function minus(a, b) {
 }
 
 let p = plus;
+//()을 붙이지 않아도 된다
 console.log("typeof plus: %s", typeof plus);
 console.log("typeof p :%s", typeof p);
 console.log("10 + 20 = %d", p(10, 20));
@@ -116,6 +117,7 @@ console.log(calculate(10, 20, plus));
 console.log('=========화살표 함수=========')
 //중괄호를 사용하지 않아도 됨
 const printHello2 = () => console.log('hello');
+//return이 없어도 됨
 const printHello3 = () => 'hello2';
 //매개변수가 한개인 경우 ()빼도 됨
 const printMessage10 = message => console.log(message)
@@ -123,7 +125,9 @@ const printMessage10 = message => console.log(message)
 const plus2 = (a, b) => a + b;
 const minus2 = (a, b) => a - b;
 
-printMessage2('message');
+printHello2();
+console.log(printHello3());
+printMessage('message');
 console.log('plus : %d', plus(10, 20));
 console.log('minus : %d', minus(10, 20));
 
@@ -145,18 +149,48 @@ console.log(result2);
 
 
 const studentList = [
-    {name: 'aaaa', age:31, math:85,science:75},
-    {name: 'bbbb', age:31, math:95,science:83},
-    {name: 'cccc', age:35, math:76,science:98},
+    { name: 'aaaa', age: 31, math: 85, science: 75 },
+    { name: 'bbbb', age: 31, math: 95, science: 83 },
+    { name: 'cccc', age: 35, math: 76, science: 98 },
 
 ];
-
-const plus3 = (a,b) => a+b;
-studentList.forEach(student => 
-    console.log(`${student.name} totla: ${plus3(student.math,student.science)}`));
+//두 값을 더해주는 함수
+const plus3 = (a, b) => a + b;
+//중괄호 X
+studentList.forEach(student =>
+    console.log(`${student.name} total: ${plus3(student.math, student.science)}`));
 
 console.log('--------');
-
+//중괄호 o 
 studentList.forEach((student) => {
-    console.log(`${student.name} total: ${plus3(student.math,student.science)}`)
+    console.log(`${student.name} total: ${plus3(student.math, student.science)}`)
 });
+
+console.log('==========callback()===========');
+//전역변수
+let resultSubtraction;
+function subtraction(a, b) {
+    resultSubtraction = a - b;
+}
+
+subtraction(100, 50);
+console.log(resultSubtraction);
+
+//변수에 익명함수 형태로 함수를 정의할 수 있음
+function multiple(a, b) {
+    const result = a * b;
+    return result;
+}
+
+const r = multiple(10, 10);
+console.log(r);
+
+//지역변수
+function sum(a, b) {
+    const resultSum = a + b;
+}
+
+sum(20, 30);
+//console.log(resultSum) 지역변수 오류
+
+console.log('==========함수의 유효범위===========');
