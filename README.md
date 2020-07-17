@@ -25,7 +25,16 @@
   * [Notion목차](https://www.notion.so/zzhyejin/Node-js-200-bd08abd2838e491ba0ea3993d5993c05)
     1. JAVASCRIPT 입문
     2. JAVASCRIPT 조건문,반복문
-
+  3. 날짜
+    4. 예외처리
+    5. 전역객체
+    6. 함수
+    7. 수학함수
+    8. 문자열함수
+    9. 정규표현식
+    10. 실행 / 실행취소 함수
+    11. list
+  
 * [소스코드](https://github.com/hyejinjeong9999/NodeJS_React/commit/1602781869feb8ed55d5c379c4fd0685531b9095)
 
   
