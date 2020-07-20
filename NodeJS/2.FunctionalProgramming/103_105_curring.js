@@ -33,14 +33,25 @@ console.log('=====curring 예제2=====')
 
 const fs = require('fs');
 
+//path와 fileName을 파라미터로 넘기는 커링함수
+//두 파라미터를 받아 파일로 읽고 내용이 에러이면(파일존재x, 빈 내용) throw err 로 에러처리
+//data.toString을 통해 파일에서 읽어들인 data를 콘솔로 출력
+//파일에서 읽어들인 data를 콘솔로 출력
 const openFileAndPrint = path => fileName => fs.readFile(path + fileName, (err,data)=>{
 
     if (err) throw err;
-    console.log(data.toString);
+    console.log(data.toString());
 });
 
-const thisDirOpenFileAndPrint = openFileAndPrint('./');
-const otherDirOpenFileAndPrint = openFileAndPrint('../');
+//커링함수 openFileAndPrint에 path를 추가함 
+//fs.readFile( ./ + filename, (err,data)=>{}) 까지 완성 
+// './' 현재위치
+// '../' 상위 디렉토리
+const thisDirOpenFileAndPrint = openFileAndPrint('./2.FunctionalProgramming/');
+const otherDirOpenFileAndPrint = openFileAndPrint('./');
 
-thisDirOpenFileAndPrint('104_curring_example.js');
-otherDirOpenFileAndPrint('package.json');
+//thisDirOpenFileAndPrint에 파일명을 넘겨줌
+//fs.readFile(./ + test.js , (err,data)=>{} ) 까지 완성되어
+//fs.readFile를 실행 
+thisDirOpenFileAndPrint('test.js');
+otherDirOpenFileAndPrint('test2.js');
