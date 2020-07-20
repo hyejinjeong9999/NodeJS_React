@@ -79,17 +79,16 @@ studentList = [
     {name : 'aaaa', age : 31, math : 85, english: 87},
     {name : 'bbbb', age : 31, math : 95, english: 97},
     {name : 'cccc', age : 35, math : 76, english: 84},
-    {name : 'dddd', age : 35, math : 84, english: 73},
+    {name : 'dddd', age : 24, math : 84, english: 73},
     {name : 'eeee', age : 26, math : 54, english: 67},
     {name : 'ffff', age : 29, math : 34, english: 100},
 
 ];
 //math를 기준으로 정렬하고 싶은 경우에 now.math - next.math 를 이용해 정렬
-// studentList.sort((now, next)=> now.math - next.math);
-// console.log('studentList : ', studentList);
+studentList.sort((now, next)=> now.math - next.math);
+console.log('studentList : ', studentList);
 
 //흐름을 보여주는 함수
-//원래 a -> b -> c-> d 순인데 왜이러지 ㅜ?
 let compare = (now, next) =>{
     console.log('------------');
     console.log('now : ', now);
