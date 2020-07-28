@@ -34,6 +34,22 @@
   	9. 정규표현식
     10. 실행 / 실행취소 함수
     11. list
+    12. 함수형프로그래밍
+    13. return
+    14. RecursiveFunction
+    15. Closer
+    16. Curring
+    17. Predicate
+    18. Filter, Map, Reduce
+    19. Promise
+    20. Exports, Require
+    21. API, 동기와 비동기
+    22. 파일
+    23. http
+    24. 쿠키
+    25. Node.js Project
+    26. request
+    27. cheerio
 * [소스코드](https://github.com/hyejinjeong9999/NodeJS_React/commit/1602781869feb8ed55d5c379c4fd0685531b9095)
 
   
