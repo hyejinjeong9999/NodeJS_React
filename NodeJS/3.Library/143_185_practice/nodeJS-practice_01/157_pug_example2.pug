@@ -1,0 +1,31 @@
+html
+    head
+        title pug example page
+        //body 부분은 하늘색
+        //h1 부분은 파란색
+        style.
+            body{
+                color : lightskyblue;
+            }    
+
+            h1{
+                color:blue;
+            }
+        //변수 name 에 입력값 받기
+        //alert 창에 name 출력    
+        script.
+            let name = prompt("what is your name", "");
+            alert("I'm"+name);
+        body
+            //div id : header
+            #header
+            h1 heool puh module
+            h2 Nice to meet you
+            //div class :url
+            .url
+            a(href="http://github.com/pugjs/pug", data-set="multiple Attribyte") Github for pug
+            ul 
+                li Item A
+                li Item B
+                li Item C
+    
