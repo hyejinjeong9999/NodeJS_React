@@ -50,6 +50,10 @@
     25. Node.js Project
     26. request
     27. cheerio
-* [소스코드](https://github.com/hyejinjeong9999/NodeJS_React/commit/1602781869feb8ed55d5c379c4fd0685531b9095)
+    28. ejs모듈
+    29. pug 모듈
+    30. winston(다시)
+    31. express 모듈
+* [소스코드](https://github.com/hyejinjeong9999/NodeJS_React/tree/master/NodeJS)
 
   
