@@ -1,8 +1,8 @@
-// if (process.env.NODE_ENV === 'production') {
-//     module.exports = require('./prod');
-// } else {
-//     module.exports = require('./dev');
-// }
-
-// //process.env.NODE_ENV (환경변수)가 production 이면 prod 폴더의 module.exports 실행
-// //아니면 dev 폴더의 module.exports 실행
+//process.env.NODE_ENV  : 환경변수
+if(process.env.NODE_ENV === 'production'){
+    //prod.js에서 가져옴
+    module.exports = require('/prod');
+}else{
+    //dev.js에서 가져옴
+    module.exports = require('/dev');
+}

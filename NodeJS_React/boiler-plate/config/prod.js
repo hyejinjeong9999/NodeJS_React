@@ -1,4 +1,4 @@
-// module.exports = {
-//     mongoURI: process.env.MONGO_URI
-// }
-// //heroku에서 config vars 의 key 값
+module.exports = {
+    //후에 MHEROKU의 MONGO_URI 에서 사용될 변수
+    MongoURI: process.env.MONGO_URI
+}
